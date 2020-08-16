@@ -38,6 +38,6 @@ public class TennisGameTest
 
     @Test
     public void shouldReturnLoveAllWhenGameStarts() {
-        Assert.assertEquals("Love All", tennisGame.determineScore());
+        Assert.assertEquals("Love-All", tennisGame.determineScore());
     }
 }
