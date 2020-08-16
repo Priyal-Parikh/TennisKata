@@ -12,12 +12,12 @@ public class TennisGame
         this.playerTwo = playerTwo;
     }
 
-    public void playerOneScoresPoint() {
-        playerOne.setPoint(playerOne.getPoint()+1);
-    }
-
-    public void playerTwoScoresPoint() {
-        playerTwo.setPoint(playerOne.getPoint()+1);
+    public void scoresPoint(String pointWinner) {
+        if (pointWinner.equalsIgnoreCase(playerOne.getName())) {
+            playerOne.setPoint(playerOne.getPoint() + 1);
+        } else if (pointWinner.equalsIgnoreCase(playerTwo.getName())) {
+            playerTwo.setPoint(playerTwo.getPoint() + 1);
+        }
     }
 
     public String determineScore() {

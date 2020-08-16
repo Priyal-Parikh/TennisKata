@@ -25,14 +25,14 @@ public class TennisGameTest
 
     @Test
     public void playerOneScoreIncreasesAfterWinningAPoint() {
-        tennisGame.playerOneScoresPoint();
+        tennisGame.scoresPoint(PLAYER_ONE_NAME);
 
         Assert.assertEquals(POINT_ONE, tennisGame.getPlayerOne().getPoint());
     }
 
     @Test
     public void playerTwoScoreIncreasesAfterWinningAPoint() {
-        tennisGame.playerTwoScoresPoint();
+        tennisGame.scoresPoint(PLAYER_TWO_NAME);
 
         Assert.assertEquals(POINT_ONE, tennisGame.getPlayerTwo().getPoint());
     }
@@ -44,7 +44,7 @@ public class TennisGameTest
 
     @Test
     public void shouldReturnFifteenLoveWhenFirstPlayerScoresAPoint() {
-        tennisGame.playerOneScoresPoint();
+        tennisGame.scoresPoint(PLAYER_ONE_NAME);
 
         Assert.assertEquals("Fifteen-Love", tennisGame.determineScore());
     }
