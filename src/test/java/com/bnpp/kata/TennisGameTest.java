@@ -5,19 +5,24 @@ import org.junit.Test;
 
 public class TennisGameTest
 {
-    @Test
-    public void shouldInitializeNewTennisGameWithTwoPlayers()
-    {
-        TennisGame tennisGame = new TennisGame("Serena Williams", "Maria Sharapova");
 
-        Assert.assertEquals("Serena Williams", tennisGame.getPlayerOneName());
-        Assert.assertEquals("Maria Sharapova", tennisGame.getPlayerTwoName());
+    public static final String PLAYER_ONE_NAME = "Serena Williams";
+    public static final String PLAYER_TWO_NAME = "Maria Sharapova";
+    public static final int POINT_ONE = 1;
+
+    @Test
+    public void shouldInitializeNewTennisGameWithTwoPlayers() {
+        TennisGame tennisGame = new TennisGame(PLAYER_ONE_NAME, PLAYER_TWO_NAME);
+
+        Assert.assertEquals(PLAYER_ONE_NAME, tennisGame.getPlayerOneName());
+        Assert.assertEquals(PLAYER_TWO_NAME, tennisGame.getPlayerTwoName());
     }
 
     @Test
     public void playerOneScoreIncreasesAfterWinningAPoint() {
-        TennisGame tennisGame = new TennisGame("Serena Williams", "Maria Sharapova");
+        TennisGame tennisGame = new TennisGame(PLAYER_ONE_NAME, PLAYER_TWO_NAME);
         tennisGame.playerOneScoresPoint();
-        Assert.assertEquals(1, tennisGame.getPlayerOnePoint());
+
+        Assert.assertEquals(POINT_ONE, tennisGame.getPlayerOnePoint());
     }
 }
