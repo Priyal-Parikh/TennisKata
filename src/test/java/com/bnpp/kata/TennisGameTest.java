@@ -25,4 +25,12 @@ public class TennisGameTest
 
         Assert.assertEquals(POINT_ONE, tennisGame.getPlayerOnePoint());
     }
+
+    @Test
+    public void playerTwoScoreIncreasesAfterWinningAPoint() {
+        TennisGame tennisGame = new TennisGame(PLAYER_ONE_NAME, PLAYER_TWO_NAME);
+        tennisGame.playerTwoScoresPoint();
+
+        Assert.assertEquals(POINT_ONE, tennisGame.getPlayerTwoPoint());
+    }
 }

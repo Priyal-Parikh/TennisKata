@@ -6,6 +6,7 @@ public class TennisGame
     private String playerOneName;
     private String playerTwoName;
     private int playerOnePoint;
+    private int playerTwoPoint;
 
     public TennisGame(String playerOneName, String playerTwoName) {
         this.playerOneName = playerOneName;
@@ -14,6 +15,10 @@ public class TennisGame
 
     public void playerOneScoresPoint() {
         playerOnePoint++;
+    }
+
+    public void playerTwoScoresPoint() {
+        playerTwoPoint++;
     }
 
     public String getPlayerOneName() {
@@ -26,5 +31,9 @@ public class TennisGame
 
     public int getPlayerOnePoint() {
         return playerOnePoint;
+    }
+
+    public int getPlayerTwoPoint() {
+        return playerTwoPoint;
     }
 }
