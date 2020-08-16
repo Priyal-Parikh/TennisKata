@@ -2,10 +2,14 @@ package com.bnpp.kata;
 
 import com.bnpp.kata.constant.Constants;
 import com.bnpp.kata.model.TennisPlayer;
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
+@RunWith(JUnitParamsRunner.class)
 public class TennisGameTest
 {
     public static final String PLAYER_ONE_NAME = "Serena Williams";
@@ -62,6 +66,25 @@ public class TennisGameTest
         createScore(POINT_ONE,Constants.POINT_TWO);
 
         Assert.assertEquals("Fifteen-Thirty", tennisGame.determineScore());
+    }
+
+    @Test
+    @Parameters({
+            "0, 0, Love-All",
+            "1, 0, Fifteen-Love",
+            "0, 1, Love-Fifteen",
+            "1, 1, Fifteen-All",
+            "2, 0, Thirty-Love",
+            "2, 1, Thirty-Fifteen",
+            "2, 2, Thirty-All",
+            "0, 2, Love-Thirty",
+            "1, 2, Fifteen-Thirty"
+    })
+    public void shouldReturnScoreInFormatBasedOnThePointsScored(int playerOnePoint, int playerTwoPoint,
+                                                                String gameScore) {
+        createScore(playerOnePoint, playerTwoPoint);
+
+        Assert.assertEquals(gameScore, tennisGame.determineScore());
     }
 
     private void createScore(int playerOnePoint,int playerTwoPoint) {
