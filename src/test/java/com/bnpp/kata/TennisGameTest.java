@@ -1,5 +1,6 @@
 package com.bnpp.kata;
 
+import com.bnpp.kata.constant.Constants;
 import com.bnpp.kata.model.TennisPlayer;
 import org.junit.Assert;
 import org.junit.Before;
@@ -44,16 +45,26 @@ public class TennisGameTest
 
     @Test
     public void shouldReturnFifteenLoveWhenFirstPlayerScoresAPoint() {
-        tennisGame.scoresPoint(PLAYER_ONE_NAME);
+        createScore(POINT_ONE, Constants.POINT_ZERO);
 
         Assert.assertEquals("Fifteen-Love", tennisGame.determineScore());
     }
 
     @Test
     public void shouldReturnFifteenAllWhenScoreIsFifteenAll() {
-        tennisGame.scoresPoint(PLAYER_ONE_NAME);
-        tennisGame.scoresPoint(PLAYER_TWO_NAME);
+        createScore(POINT_ONE,POINT_ONE);
 
         Assert.assertEquals("Fifteen-All", tennisGame.determineScore());
+    }
+
+    private void createScore(int playerOnePoint,int playerTwoPoint) {
+        for(int pointCounter=0;pointCounter<playerOnePoint;pointCounter++)
+        {
+            tennisGame.scoresPoint(PLAYER_ONE_NAME);
+        }
+        for(int pointCounter=0;pointCounter<playerTwoPoint;pointCounter++)
+        {
+            tennisGame.scoresPoint(PLAYER_TWO_NAME);
+        }
     }
 }
