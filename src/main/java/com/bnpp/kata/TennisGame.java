@@ -21,6 +21,10 @@ public class TennisGame
         playerTwoPoint++;
     }
 
+    public String determineScore() {
+        return "Love All";
+    }
+
     public String getPlayerOneName() {
         return playerOneName;
     }
