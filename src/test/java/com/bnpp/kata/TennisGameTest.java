@@ -41,4 +41,11 @@ public class TennisGameTest
     public void shouldReturnLoveAllWhenGameStarts() {
         Assert.assertEquals("Love-All", tennisGame.determineScore());
     }
+
+    @Test
+    public void shouldReturnFifteenLoveWhenFirstPlayerScoresAPoint() {
+        tennisGame.playerOneScoresPoint();
+
+        Assert.assertEquals("Fifteen-Love", tennisGame.determineScore());
+    }
 }

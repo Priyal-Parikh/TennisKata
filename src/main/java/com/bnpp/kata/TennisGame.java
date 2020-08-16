@@ -21,8 +21,26 @@ public class TennisGame
     }
 
     public String determineScore() {
-        return "Love-All";
+        String playerOneScoreInWord = convertScore(playerOne.getPoint());
+        String playerTwoScoreInWord = convertScore(playerTwo.getPoint());
+
+        if (playerOneScoreInWord != null && playerOneScoreInWord.equalsIgnoreCase(playerTwoScoreInWord)) {
+            return playerOneScoreInWord + "-" + "All";
+        } else {
+            return playerOneScoreInWord + "-" + playerTwoScoreInWord;
+        }
     }
+
+    private String convertScore(int point) {
+        String pointForScoreCard = null;
+        if (point == 0) {
+            pointForScoreCard = "Love";
+        } else if (point == 1) {
+            pointForScoreCard = "Fifteen";
+        }
+        return pointForScoreCard;
+    }
+
 
     public TennisPlayer getPlayerOne() {
         return playerOne;
