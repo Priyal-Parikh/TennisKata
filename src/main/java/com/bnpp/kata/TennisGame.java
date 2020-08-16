@@ -33,8 +33,12 @@ public class TennisGame
             return Constants.TEXT_ADVANTAGE + Constants.SCORE_SEPARATOR + leadingPlayer.getName();
         }
 
-        String playerOneScoreInWord = convertScore(playerOne.getPoint());
-        String playerTwoScoreInWord = convertScore(playerTwo.getPoint());
+        return formatScore(playerOne.getPoint(), playerTwo.getPoint());
+    }
+
+    private static String formatScore(int playerOnePoint, int playerTwoPoint) {
+        String playerOneScoreInWord = convertScore(playerOnePoint);
+        String playerTwoScoreInWord = convertScore(playerTwoPoint);
 
         if (playerOneScoreInWord != null && playerOneScoreInWord.equalsIgnoreCase(playerTwoScoreInWord)) {
             return playerOneScoreInWord + Constants.SCORE_SEPARATOR + Constants.TEXT_ALL;
@@ -63,7 +67,7 @@ public class TennisGame
         return (!isScoreLevels() && isAnyPlayerHasReachedForty());
     }
 
-    private String convertScore(int point) {
+    private static String convertScore(int point) {
         return Constants.SCORE_LIST[point];
     }
 
