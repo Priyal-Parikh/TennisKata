@@ -57,6 +57,13 @@ public class TennisGameTest
         Assert.assertEquals("Fifteen-All", tennisGame.determineScore());
     }
 
+    @Test
+    public void shouldReturnFifteenThirtyWhenScoreIsFifteenThirty() {
+        createScore(POINT_ONE,Constants.POINT_TWO);
+
+        Assert.assertEquals("Fifteen-Thirty", tennisGame.determineScore());
+    }
+
     private void createScore(int playerOnePoint,int playerTwoPoint) {
         for(int pointCounter=0;pointCounter<playerOnePoint;pointCounter++)
         {

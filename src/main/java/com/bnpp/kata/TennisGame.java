@@ -38,6 +38,8 @@ public class TennisGame
             pointForScoreCard = Constants.TEXT_LOVE;
         } else if (point == Constants.POINT_ONE) {
             pointForScoreCard = Constants.TEXT_FIFTEEN;
+        }else if (point == Constants.POINT_TWO) {
+            pointForScoreCard = Constants.TEXT_THIRTY;
         }
         return pointForScoreCard;
     }
