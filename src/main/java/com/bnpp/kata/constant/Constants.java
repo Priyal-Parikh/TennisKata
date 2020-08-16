@@ -13,6 +13,7 @@ public class Constants {
     public static final String TEXT_THIRTY = "Thirty";
     public static final String TEXT_FORTY = "Forty";
     public static final String TEXT_DEUCE = "Deuce";
+    public static final String TEXT_ADVANTAGE = "Advantage";
 
     public static final char SCORE_SEPARATOR = '-';
 

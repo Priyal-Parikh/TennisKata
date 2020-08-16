@@ -27,6 +27,12 @@ public class TennisGame
             return Constants.TEXT_DEUCE;
         }
 
+        if(isPlayerHasAdvantage())
+        {
+            TennisPlayer leadingPlayer = (playerOne.getPoint() > playerTwo.getPoint()) ? playerOne : playerTwo;
+            return Constants.TEXT_ADVANTAGE + Constants.SCORE_SEPARATOR + leadingPlayer.getName();
+        }
+
         String playerOneScoreInWord = convertScore(playerOne.getPoint());
         String playerTwoScoreInWord = convertScore(playerTwo.getPoint());
 
@@ -47,6 +53,10 @@ public class TennisGame
 
     private boolean isScoreLevels() {
         return playerOne.getPoint() == playerTwo.getPoint();
+    }
+
+    private boolean isPlayerHasAdvantage() {
+        return (!isScoreLevels() && isAnyPlayerHasReachedForty());
     }
 
     private String convertScore(int point) {
