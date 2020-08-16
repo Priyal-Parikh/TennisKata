@@ -29,7 +29,7 @@ public class TennisGame
 
         if(isPlayerHasAdvantage())
         {
-            TennisPlayer leadingPlayer = (playerOne.getPoint() > playerTwo.getPoint()) ? playerOne : playerTwo;
+            TennisPlayer leadingPlayer = determineLeadingPlayer();
             return Constants.TEXT_ADVANTAGE + Constants.SCORE_SEPARATOR + leadingPlayer.getName();
         }
 
@@ -41,6 +41,10 @@ public class TennisGame
         } else {
             return playerOneScoreInWord + Constants.SCORE_SEPARATOR + playerTwoScoreInWord;
         }
+    }
+
+    private TennisPlayer determineLeadingPlayer() {
+        return (playerOne.getPoint() > playerTwo.getPoint()) ? playerOne : playerTwo;
     }
 
     private boolean isDeuce() {
