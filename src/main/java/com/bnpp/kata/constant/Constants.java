@@ -14,6 +14,8 @@ public class Constants {
 
     public static final char SCORE_SEPARATOR = '-';
 
+    public static final String[] SCORE_LIST = {TEXT_LOVE,TEXT_FIFTEEN,TEXT_THIRTY,TEXT_FORTY};
+
     private Constants() {
     }
 }

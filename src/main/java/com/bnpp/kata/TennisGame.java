@@ -33,19 +33,8 @@ public class TennisGame
     }
 
     private String convertScore(int point) {
-        String pointForScoreCard = null;
-        if (point == Constants.POINT_ZERO) {
-            pointForScoreCard = Constants.TEXT_LOVE;
-        } else if (point == Constants.POINT_ONE) {
-            pointForScoreCard = Constants.TEXT_FIFTEEN;
-        }else if (point == Constants.POINT_TWO) {
-            pointForScoreCard = Constants.TEXT_THIRTY;
-        }else if (point == Constants.POINT_THREE) {
-            pointForScoreCard = Constants.TEXT_FORTY;
-        }
-        return pointForScoreCard;
+        return Constants.SCORE_LIST[point];
     }
-
 
     public TennisPlayer getPlayerOne() {
         return playerOne;
