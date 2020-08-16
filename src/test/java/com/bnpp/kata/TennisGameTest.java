@@ -126,6 +126,17 @@ public class TennisGameTest
         Assert.assertEquals(PLAYER_ONE_NAME+"-wins", tennisGame.determineScore());
     }
 
+    @Test
+    @Parameters({
+            "0, 4",
+            "4, 6",
+            "5, 7" })
+    public void playerTwoWinsTheGame(int playerOnePoint, int playerTwoPoint) {
+        createScore(playerOnePoint, playerTwoPoint);
+
+        Assert.assertEquals(PLAYER_TWO_NAME+"-wins", tennisGame.determineScore());
+    }
+
     private void createScore(int playerOnePoint,int playerTwoPoint) {
         for(int pointCounter=0;pointCounter<playerOnePoint;pointCounter++)
         {
