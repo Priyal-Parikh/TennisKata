@@ -42,7 +42,11 @@ public class TennisGame
 
     private boolean isGameHasWinner() {
         return (determineLeadingPlayer().getPoint() > Constants.POINT_THREE
-                && Math.abs(playerOne.getPoint() - playerTwo.getPoint()) > Constants.POINT_ONE);
+                && pointDifferenceOfPlayers() > Constants.POINT_ONE);
+    }
+
+    private int pointDifferenceOfPlayers() {
+        return Math.abs(playerOne.getPoint() - playerTwo.getPoint());
     }
 
     private static String formatScore(int playerOnePoint, int playerTwoPoint) {
