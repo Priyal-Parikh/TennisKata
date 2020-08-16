@@ -22,6 +22,10 @@ public class TennisGame
     }
 
     public String determineScore() {
+        if (isGameHasWinner()) {
+            return determineLeadingPlayer().getName() + Constants.SCORE_SEPARATOR + Constants.TEXT_WINS;
+        }
+
         if(isDeuce())
         {
             return Constants.TEXT_DEUCE;
@@ -34,6 +38,11 @@ public class TennisGame
         }
 
         return formatScore(playerOne.getPoint(), playerTwo.getPoint());
+    }
+
+    private boolean isGameHasWinner() {
+        return (determineLeadingPlayer().getPoint() > Constants.POINT_THREE
+                && Math.abs(playerOne.getPoint() - playerTwo.getPoint()) > Constants.POINT_ONE);
     }
 
     private static String formatScore(int playerOnePoint, int playerTwoPoint) {
