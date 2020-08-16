@@ -1,5 +1,6 @@
 package com.bnpp.kata;
 
+import com.bnpp.kata.constant.Constants;
 import com.bnpp.kata.model.TennisPlayer;
 
 public class TennisGame
@@ -14,9 +15,9 @@ public class TennisGame
 
     public void scoresPoint(String pointWinner) {
         if (pointWinner.equalsIgnoreCase(playerOne.getName())) {
-            playerOne.setPoint(playerOne.getPoint() + 1);
+            playerOne.setPoint(playerOne.getPoint() + Constants.POINT_ONE);
         } else if (pointWinner.equalsIgnoreCase(playerTwo.getName())) {
-            playerTwo.setPoint(playerTwo.getPoint() + 1);
+            playerTwo.setPoint(playerTwo.getPoint() + Constants.POINT_ONE);
         }
     }
 
@@ -25,18 +26,18 @@ public class TennisGame
         String playerTwoScoreInWord = convertScore(playerTwo.getPoint());
 
         if (playerOneScoreInWord != null && playerOneScoreInWord.equalsIgnoreCase(playerTwoScoreInWord)) {
-            return playerOneScoreInWord + "-" + "All";
+            return playerOneScoreInWord + Constants.SCORE_SEPARATOR + Constants.TEXT_ALL;
         } else {
-            return playerOneScoreInWord + "-" + playerTwoScoreInWord;
+            return playerOneScoreInWord + Constants.SCORE_SEPARATOR + playerTwoScoreInWord;
         }
     }
 
     private String convertScore(int point) {
         String pointForScoreCard = null;
-        if (point == 0) {
-            pointForScoreCard = "Love";
-        } else if (point == 1) {
-            pointForScoreCard = "Fifteen";
+        if (point == Constants.POINT_ZERO) {
+            pointForScoreCard = Constants.TEXT_LOVE;
+        } else if (point == Constants.POINT_ONE) {
+            pointForScoreCard = Constants.TEXT_FIFTEEN;
         }
         return pointForScoreCard;
     }
