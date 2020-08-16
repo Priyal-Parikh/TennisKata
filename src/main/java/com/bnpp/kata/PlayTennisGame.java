@@ -17,25 +17,31 @@ public class PlayTennisGame {
     private static void startGame(Scanner scanner, TennisGame tennisGame) {
         boolean isGameOver = false;
         System.out.println("Let's start the game "+tennisGame.getPlayerOne().getName()+"and "+tennisGame.getPlayerTwo().getName()+" !!!");
-        System.out.println("***************************************************");
-        System.out.println("Current Score :"+tennisGame.determineScore());
-        System.out.println("***************************************************");
+        displayScore(tennisGame.determineScore());
         while (!isGameOver) {
             System.out.print("Next point scored by " + tennisGame.getPlayerOne().getName() + " or "
                     + tennisGame.getPlayerTwo().getName() + "? :");
             String pointScoredByPlayer = scanner.nextLine();
-            if (pointScoredByPlayer != null && (pointScoredByPlayer.equalsIgnoreCase(tennisGame.getPlayerOne().getName()) || pointScoredByPlayer.equalsIgnoreCase(tennisGame.getPlayerTwo().getName()))) {
+            if (pointScoredByPlayer != null && isEntredNameSameAsPlayerName(tennisGame, pointScoredByPlayer)) {
                 tennisGame.scoresPoint(pointScoredByPlayer);
                 String score = tennisGame.determineScore();
-                System.out.println("***************************************************");
-                System.out.println("Current Score :"+score);
-                System.out.println("***************************************************");
+                displayScore(score);
                 isGameOver = score.contains("wins");
             } else {
                 System.out.println("Invalid Player Name!!!!");
             }
         }
         System.out.println("Game over!");
+    }
+
+    private static boolean isEntredNameSameAsPlayerName(TennisGame tennisGame, String pointScoredByPlayer) {
+        return pointScoredByPlayer.equalsIgnoreCase(tennisGame.getPlayerOne().getName()) || pointScoredByPlayer.equalsIgnoreCase(tennisGame.getPlayerTwo().getName());
+    }
+
+    private static void displayScore(String score) {
+        System.out.println("***************************************************");
+        System.out.println("Current Score :" + score);
+        System.out.println("***************************************************");
     }
 
     private static TennisGame initializeGame(Scanner scanner)
