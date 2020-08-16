@@ -78,7 +78,14 @@ public class TennisGameTest
             "2, 1, Thirty-Fifteen",
             "2, 2, Thirty-All",
             "0, 2, Love-Thirty",
-            "1, 2, Fifteen-Thirty"
+            "1, 2, Fifteen-Thirty",
+            "3, 0, Forty-Love",
+            "3, 1, Forty-Fifteen",
+            "3, 2, Forty-Thirty",
+            "0, 3, Love-Forty",
+            "1, 3, Fifteen-Forty",
+            "2, 3, Thirty-Forty",
+            "3, 3, Forty-All"
     })
     public void shouldReturnScoreInFormatBasedOnThePointsScored(int playerOnePoint, int playerTwoPoint,
                                                                 String gameScore) {
