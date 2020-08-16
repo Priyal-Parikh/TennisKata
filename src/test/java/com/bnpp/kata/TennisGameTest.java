@@ -48,4 +48,12 @@ public class TennisGameTest
 
         Assert.assertEquals("Fifteen-Love", tennisGame.determineScore());
     }
+
+    @Test
+    public void shouldReturnFifteenAllWhenScoreIsFifteenAll() {
+        tennisGame.scoresPoint(PLAYER_ONE_NAME);
+        tennisGame.scoresPoint(PLAYER_TWO_NAME);
+
+        Assert.assertEquals("Fifteen-All", tennisGame.determineScore());
+    }
 }
