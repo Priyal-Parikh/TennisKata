@@ -1,5 +1,6 @@
 package com.bnpp.kata;
 
+import com.bnpp.kata.model.TennisPlayer;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,27 +14,27 @@ public class TennisGameTest
 
     @Before
     public void setUp() {
-        tennisGame = new TennisGame(PLAYER_ONE_NAME, PLAYER_TWO_NAME);
+        tennisGame = new TennisGame(new TennisPlayer(PLAYER_ONE_NAME), new TennisPlayer(PLAYER_TWO_NAME));
     }
 
     @Test
     public void shouldInitializeNewTennisGameWithTwoPlayers() {
-        Assert.assertEquals(PLAYER_ONE_NAME, tennisGame.getPlayerOneName());
-        Assert.assertEquals(PLAYER_TWO_NAME, tennisGame.getPlayerTwoName());
+        Assert.assertEquals(PLAYER_ONE_NAME, tennisGame.getPlayerOne().getName());
+        Assert.assertEquals(PLAYER_TWO_NAME, tennisGame.getPlayerTwo().getName());
     }
 
     @Test
     public void playerOneScoreIncreasesAfterWinningAPoint() {
         tennisGame.playerOneScoresPoint();
 
-        Assert.assertEquals(POINT_ONE, tennisGame.getPlayerOnePoint());
+        Assert.assertEquals(POINT_ONE, tennisGame.getPlayerOne().getPoint());
     }
 
     @Test
     public void playerTwoScoreIncreasesAfterWinningAPoint() {
         tennisGame.playerTwoScoresPoint();
 
-        Assert.assertEquals(POINT_ONE, tennisGame.getPlayerTwoPoint());
+        Assert.assertEquals(POINT_ONE, tennisGame.getPlayerTwo().getPoint());
     }
 
     @Test

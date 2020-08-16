@@ -1,43 +1,34 @@
 package com.bnpp.kata;
 
+import com.bnpp.kata.model.TennisPlayer;
+
 public class TennisGame
 {
+    private TennisPlayer playerOne;
+    private TennisPlayer playerTwo;
 
-    private String playerOneName;
-    private String playerTwoName;
-    private int playerOnePoint;
-    private int playerTwoPoint;
-
-    public TennisGame(String playerOneName, String playerTwoName) {
-        this.playerOneName = playerOneName;
-        this.playerTwoName = playerTwoName;
+    public TennisGame(TennisPlayer playerOne, TennisPlayer playerTwo) {
+        this.playerOne = playerOne;
+        this.playerTwo = playerTwo;
     }
 
     public void playerOneScoresPoint() {
-        playerOnePoint++;
+        playerOne.setPoint(playerOne.getPoint()+1);
     }
 
     public void playerTwoScoresPoint() {
-        playerTwoPoint++;
+        playerTwo.setPoint(playerOne.getPoint()+1);
     }
 
     public String determineScore() {
         return "Love-All";
     }
 
-    public String getPlayerOneName() {
-        return playerOneName;
+    public TennisPlayer getPlayerOne() {
+        return playerOne;
     }
 
-    public String getPlayerTwoName() {
-        return playerTwoName;
-    }
-
-    public int getPlayerOnePoint() {
-        return playerOnePoint;
-    }
-
-    public int getPlayerTwoPoint() {
-        return playerTwoPoint;
+    public TennisPlayer getPlayerTwo() {
+        return playerTwo;
     }
 }
